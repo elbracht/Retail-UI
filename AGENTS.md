@@ -6,3 +6,4 @@ This file contains instructions for AI agents working on this repository.
 
 - [Semantic Commits](.ai/rules/semantic-commits.md)
 - [Git Operations](.ai/rules/git-operations.md)
+- [Luacheck](.ai/rules/luacheck.md)
