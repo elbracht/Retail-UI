@@ -24,3 +24,6 @@ Locales\enUS.lua
 # Core
 Core.lua
 Config.lua
+
+# UnitFrames
+Modules\UnitFrame\PlayerFrame\Load.xml

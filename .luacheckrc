@@ -9,7 +9,20 @@ exclude_files = {
     'Libs/**',
 }
 
-read_globals = {
-    'LibStub',
+globals = {
+    -- WoW API: Namespaces
     'C_AddOns',
+
+    -- WoW API: UI
+    'CreateFrame',
+    'CreateMaskTexture',
+    'UIParent',
+    'PlayerFrame',
+    'SetPortraitTexture',
+
+    -- Addon Libraries
+    'LibStub',
+
+    -- Addon Globals
+    'CreatePortrait',
 }

@@ -1,0 +1,5 @@
+local frame = CreateFrame("Frame")
+frame:RegisterEvent("ADDON_LOADED")
+frame:SetScript("OnEvent", function(_, _)
+	PlayerFrame:Hide()
+end)
