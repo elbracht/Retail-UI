@@ -2,10 +2,13 @@ local _, addonTable = ...
 local RetailUI = addonTable.RetailUI
 local PlayerFrame = RetailUI:GetModule("PlayerFrame")
 
-function PlayerFrame:CreatePortrait(size, offset)
+local PORTRAIT_SIZE = 122
+local PORTRAIT_OFFSET = 11
+
+function PlayerFrame:CreatePortrait(scale)
 	local portraitFrame = CreateFrame("Frame", nil, self.frame)
-	portraitFrame:SetSize(size, size)
-	portraitFrame:SetPoint("TOPLEFT", self.frame, "TOPLEFT", offset, -offset)
+	portraitFrame:SetSize(PORTRAIT_SIZE * scale, PORTRAIT_SIZE * scale)
+	portraitFrame:SetPoint("TOPLEFT", self.frame, "TOPLEFT", PORTRAIT_OFFSET * scale, -PORTRAIT_OFFSET * scale)
 	portraitFrame:SetFrameLevel(self.frame:GetFrameLevel() - 1)
 
 	local portraitMask = portraitFrame:CreateMaskTexture(nil, "ARTWORK")

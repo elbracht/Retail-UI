@@ -3,4 +3,5 @@
 	<Script file="HidePlayerFrame.lua"/>
 	<Script file="PlayerFrame.lua"/>
 	<Script file="Portrait.lua"/>
+	<Script file="PortraitCorner.lua"/>
 </Ui>
