@@ -20,4 +20,5 @@ function PlayerFrame:OnEnable()
 	self.frame = frame
 	self.portrait = self:CreatePortrait(PLAYER_FRAME_SCALE)
     self.portraitCorner = self:CreatePortraitCorner(PLAYER_FRAME_SCALE)
+	self.name = self:CreateText(PLAYER_FRAME_SCALE)
 end
