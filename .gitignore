@@ -9,3 +9,6 @@ Thumbs.db
 # Packaging output
 /dist/
 *.zip
+
+# Build artifacts (generated from PNGs)
+*.blp
