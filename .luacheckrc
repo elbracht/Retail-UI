@@ -20,6 +20,11 @@ globals = {
     'PlayerFrame',
     'SetPortraitTexture',
 
+    -- WoW API: Functions
+    'CreateColor',
+    'UnitHealth',
+    'UnitHealthMax',
+
     -- Addon Libraries
     'LibStub',
 }

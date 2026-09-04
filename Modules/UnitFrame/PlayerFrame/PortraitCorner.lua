@@ -13,17 +13,22 @@ function PlayerFrame:CreatePortraitCorner(scale)
 
 	local texture = portraitCorner:CreateTexture(nil, "BACKGROUND")
 	texture:SetAllPoints()
-	texture:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Corner.blp")
 
-	portraitCorner:RegisterEvent("PLAYER_REGEN_DISABLED")
-	portraitCorner:RegisterEvent("PLAYER_REGEN_ENABLED")
-	portraitCorner:SetScript("OnEvent", function(_, event)
-		if event == "PLAYER_REGEN_DISABLED" then
+	local function UpdateCorner(isCombat)
+		if isCombat then
 			texture:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Corner-Combat.blp")
 		else
 			texture:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Corner.blp")
 		end
+	end
+
+	portraitCorner:RegisterEvent("PLAYER_REGEN_DISABLED")
+	portraitCorner:RegisterEvent("PLAYER_REGEN_ENABLED")
+	portraitCorner:SetScript("OnEvent", function(_, event)
+		UpdateCorner(event == "PLAYER_REGEN_DISABLED")
 	end)
+
+	UpdateCorner(false)
 
 	return portraitCorner
 end

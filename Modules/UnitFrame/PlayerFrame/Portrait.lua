@@ -11,13 +11,13 @@ function PlayerFrame:CreatePortrait(scale)
 	portraitFrame:SetPoint("TOPLEFT", self.frame, "TOPLEFT", PORTRAIT_OFFSET * scale, -PORTRAIT_OFFSET * scale)
 	portraitFrame:SetFrameLevel(self.frame:GetFrameLevel() - 1)
 
-	local portraitMask = portraitFrame:CreateMaskTexture(nil, "ARTWORK")
-	portraitMask:SetAllPoints()
-	portraitMask:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Mask.blp")
-
 	local portrait = portraitFrame:CreateTexture(nil, "ARTWORK")
 	portrait:SetAllPoints()
-	portrait:AddMaskTexture(portraitMask)
+
+	local mask = portraitFrame:CreateMaskTexture(nil, "ARTWORK")
+	mask:SetAllPoints()
+	mask:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Mask.blp")
+	portrait:AddMaskTexture(mask)
 
 	portraitFrame:RegisterEvent("UNIT_PORTRAIT_UPDATE")
 	portraitFrame:SetScript("OnEvent", function()

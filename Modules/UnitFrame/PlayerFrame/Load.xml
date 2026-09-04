@@ -5,4 +5,5 @@
 	<Script file="Portrait.lua"/>
 	<Script file="PortraitCorner.lua"/>
 	<Script file="Text.lua"/>
+	<Script file="HealthBar.lua"/>
 </Ui>

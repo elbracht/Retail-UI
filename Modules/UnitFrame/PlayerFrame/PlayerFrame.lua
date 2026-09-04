@@ -21,4 +21,5 @@ function PlayerFrame:OnEnable()
 	self.portrait = self:CreatePortrait(PLAYER_FRAME_SCALE)
     self.portraitCorner = self:CreatePortraitCorner(PLAYER_FRAME_SCALE)
 	self.name = self:CreateText(PLAYER_FRAME_SCALE)
+	self.healthBar = self:CreateHealthBar(PLAYER_FRAME_SCALE)
 end
