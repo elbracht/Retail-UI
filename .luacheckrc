@@ -22,7 +22,4 @@ globals = {
 
     -- Addon Libraries
     'LibStub',
-
-    -- Addon Globals
-    'CreatePortrait',
 }

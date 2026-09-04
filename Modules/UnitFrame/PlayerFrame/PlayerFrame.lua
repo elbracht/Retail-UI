@@ -20,5 +20,5 @@ function PlayerFrame:OnEnable()
 	tex:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame.blp")
 
 	self.frame = frame
-	self.portrait = CreatePortrait(frame, PLAYER_FRAME_PORTRAIT_SIZE * PLAYER_FRAME_SCALE, PLAYER_FRAME_PORTRAIT_OFFSET * PLAYER_FRAME_SCALE)
+	self.portrait = self:CreatePortrait(PLAYER_FRAME_PORTRAIT_SIZE * PLAYER_FRAME_SCALE, PLAYER_FRAME_PORTRAIT_OFFSET * PLAYER_FRAME_SCALE)
 end
