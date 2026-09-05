@@ -7,6 +7,14 @@ local HEALTH_BAR_TEXT_HEIGHT = 40
 local HEALTH_BAR_TEXT_OFFSET_X = 142
 local HEALTH_BAR_TEXT_OFFSET_Y = 53
 
+local function GetHealthText(health, maxHealth)
+	return health .. " / " .. maxHealth
+end
+
+local function GetHealthPercentText(health, maxHealth)
+	return math.floor(health / maxHealth * 100 + 0.5) .. "%"
+end
+
 function PlayerFrame:CreateHealthBarText(scale)
 	local frame = CreateFrame("Frame", nil, self.frame)
 	frame:SetSize(HEALTH_BAR_TEXT_WIDTH * scale, HEALTH_BAR_TEXT_HEIGHT * scale)
@@ -31,13 +39,17 @@ function PlayerFrame:CreateHealthBarText(scale)
 		textLeft:SetText("")
 		textRight:SetText("")
 
+		if maxHealth == 0 then
+			maxHealth = 1
+		end
+
 		if setting == "NUMERIC" then
-			textCenter:SetText(health .. " / " .. maxHealth)
+			textCenter:SetText(GetHealthText(health, maxHealth))
 		elseif setting == "PERCENT" then
-			textCenter:SetText(math.floor(health / maxHealth * 100 + 0.5) .. "%")
+			textCenter:SetText(GetHealthPercentText(health, maxHealth))
 		elseif setting == "BOTH" then
-			textLeft:SetText(health .. " / " .. maxHealth)
-			textRight:SetText(math.floor(health / maxHealth * 100 + 0.5) .. "%")
+			textLeft:SetText(GetHealthText(health, maxHealth))
+			textRight:SetText(GetHealthPercentText(health, maxHealth))
 		end
 	end
 
