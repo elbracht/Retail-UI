@@ -23,9 +23,9 @@ end
 
 function RetailUI:OnEnable() self:Print(L['Loaded']) end
 
-function RetailUI:OpenOptions() LibStub('AceConfigDialog-3.0'):Open(addonName) end
+function RetailUI.OpenOptions() LibStub('AceConfigDialog-3.0'):Open(addonName) end
 
-function RetailUI:GetVersion()
+function RetailUI.GetVersion()
 	local version = C_AddOns.GetAddOnMetadata(addonName, 'Version')
 	return version or 'unknown'
 end
