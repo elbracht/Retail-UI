@@ -1,6 +1,7 @@
 local _, addonTable = ...
 local RetailUI = addonTable.RetailUI
 local PlayerFrame = RetailUI:GetModule("PlayerFrame")
+local TexturePath = addonTable.Textures.GetTexturePath
 
 local PORTRAIT_SIZE = 116
 local PORTRAIT_OFFSET = 14
@@ -16,7 +17,7 @@ function PlayerFrame:CreatePortrait(scale)
 
 	local mask = frame:CreateMaskTexture(nil, "ARTWORK")
 	mask:SetAllPoints()
-	mask:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Mask.blp")
+	mask:SetTexture(TexturePath("UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Mask.blp"))
 	portrait:AddMaskTexture(mask)
 
 	frame:RegisterEvent("UNIT_PORTRAIT_UPDATE")

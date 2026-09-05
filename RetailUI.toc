@@ -21,6 +21,9 @@ Libs\AceLocale-3.0\AceLocale-3.0.xml
 # Locales
 Locales\enUS.lua
 
+# Utils
+Utils\Textures.lua
+
 # Core
 Core.lua
 Config.lua

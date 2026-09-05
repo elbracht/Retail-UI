@@ -1,6 +1,7 @@
 local _, addonTable = ...
 local RetailUI = addonTable.RetailUI
 local PlayerFrame = RetailUI:GetModule("PlayerFrame")
+local TexturePath = addonTable.Textures.GetTexturePath
 
 local HEALTH_BAR_WIDTH = 251
 local HEALTH_BAR_HEIGHT = 40
@@ -41,10 +42,10 @@ function PlayerFrame:CreateHealthBar(scale)
 
 	local fill = frame:CreateTexture(nil, "ARTWORK")
 	fill:SetAllPoints()
-	fill:SetTexture("Interface/Buttons/WHITE8x8")
+	fill:SetTexture("Interface\\Buttons\\WHITE8x8")
 
 	local mask = frame:CreateMaskTexture(nil, "ARTWORK")
-	mask:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-HealthBar-Mask.blp")
+	mask:SetTexture(TexturePath("UnitFrame\\PlayerFrame\\PlayerFrame-HealthBar-Mask.blp"))
 	mask:SetAllPoints()
 	fill:AddMaskTexture(mask)
 	background:AddMaskTexture(mask)

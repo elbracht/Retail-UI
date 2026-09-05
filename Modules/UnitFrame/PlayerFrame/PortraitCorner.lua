@@ -1,6 +1,7 @@
 local _, addonTable = ...
 local RetailUI = addonTable.RetailUI
 local PlayerFrame = RetailUI:GetModule("PlayerFrame")
+local TexturePath = addonTable.Textures.GetTexturePath
 
 local PORTRAIT_CORNER_SIZE = 36
 local PORTRAIT_CORNER_OFFSET = 94
@@ -16,9 +17,9 @@ function PlayerFrame:CreatePortraitCorner(scale)
 
 	local function UpdateCorner(isCombat)
 		if isCombat then
-			texture:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Corner-Combat.blp")
+			texture:SetTexture(TexturePath("UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Corner-Combat.blp"))
 		else
-			texture:SetTexture("Interface\\AddOns\\RetailUI\\Textures\\UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Corner.blp")
+			texture:SetTexture(TexturePath("UnitFrame\\PlayerFrame\\PlayerFrame-Portrait-Corner.blp"))
 		end
 	end
 
