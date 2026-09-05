@@ -10,7 +10,7 @@ local PLAYER_FRAME_HEIGHT = 144
 local PLAYER_FRAME_SCALE = 0.5
 
 function PlayerFrame:OnEnable()
-	local frame = CreateFrame("Frame", nil, UIParent)
+	local frame = CreateFrame("Button", nil, UIParent, "SecureUnitButtonTemplate")
 	frame:SetPoint("CENTER")
 	frame:SetSize(PLAYER_FRAME_WIDTH * PLAYER_FRAME_SCALE, PLAYER_FRAME_HEIGHT * PLAYER_FRAME_SCALE)
 
@@ -19,6 +19,7 @@ function PlayerFrame:OnEnable()
 	texture:SetTexture(Textures.GetTexturePath("UnitFrame\\PlayerFrame\\PlayerFrame.blp"))
 
 	self.frame = frame
+	self:SetupInteraction()
 	self.portrait = self:CreatePortrait(PLAYER_FRAME_SCALE)
 	self.portraitCorner = self:CreatePortraitCorner(PLAYER_FRAME_SCALE)
 	self.name = self:CreateText(PLAYER_FRAME_SCALE)

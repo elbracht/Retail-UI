@@ -2,6 +2,7 @@
 ..\FrameXML\UI.xsd">
 	<!-- <Script file="HideBlizzardFrame.lua"/> -->
 	<Script file="PlayerFrame.lua"/>
+	<Script file="Interaction.lua"/>
 	<Script file="Portrait.lua"/>
 	<Script file="PortraitCorner.lua"/>
 	<Script file="Text.lua"/>

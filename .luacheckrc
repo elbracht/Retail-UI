@@ -26,6 +26,8 @@ globals = {
     'PowerBarColor',
     'UnitHealth',
     'UnitHealthMax',
+    'UnitFrame_OnEnter',
+    'UnitFrame_OnLeave',
     'UnitLevel',
     'UnitName',
     'UnitPower',
