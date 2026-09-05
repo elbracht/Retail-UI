@@ -6,12 +6,12 @@ local PORTRAIT_CORNER_SIZE = 36
 local PORTRAIT_CORNER_OFFSET = 94
 
 function PlayerFrame:CreatePortraitCorner(scale)
-	local portraitCorner = CreateFrame("Frame", nil, self.frame)
-	portraitCorner:SetSize(PORTRAIT_CORNER_SIZE * scale, PORTRAIT_CORNER_SIZE * scale)
-	portraitCorner:SetPoint("TOPLEFT", self.frame, "TOPLEFT", PORTRAIT_CORNER_OFFSET * scale, -PORTRAIT_CORNER_OFFSET * scale)
-	portraitCorner:SetFrameLevel(self.frame:GetFrameLevel() + 1)
+	local frame = CreateFrame("Frame", nil, self.frame)
+	frame:SetSize(PORTRAIT_CORNER_SIZE * scale, PORTRAIT_CORNER_SIZE * scale)
+	frame:SetPoint("TOPLEFT", self.frame, "TOPLEFT", PORTRAIT_CORNER_OFFSET * scale, -PORTRAIT_CORNER_OFFSET * scale)
+	frame:SetFrameLevel(self.frame:GetFrameLevel() + 1)
 
-	local texture = portraitCorner:CreateTexture(nil, "BACKGROUND")
+	local texture = frame:CreateTexture(nil, "BACKGROUND")
 	texture:SetAllPoints()
 
 	local function UpdateCorner(isCombat)
@@ -22,13 +22,13 @@ function PlayerFrame:CreatePortraitCorner(scale)
 		end
 	end
 
-	portraitCorner:RegisterEvent("PLAYER_REGEN_DISABLED")
-	portraitCorner:RegisterEvent("PLAYER_REGEN_ENABLED")
-	portraitCorner:SetScript("OnEvent", function(_, event)
+	frame:RegisterEvent("PLAYER_REGEN_DISABLED")
+	frame:RegisterEvent("PLAYER_REGEN_ENABLED")
+	frame:SetScript("OnEvent", function(_, event)
 		UpdateCorner(event == "PLAYER_REGEN_DISABLED")
 	end)
 
 	UpdateCorner(false)
 
-	return portraitCorner
+	return frame
 end
