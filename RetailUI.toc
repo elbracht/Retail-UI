@@ -1,7 +1,7 @@
 ## Interface: 11509
 ## Title: Retail UI
 ## Notes: Brings the modern retail UI to Classic Era.
-## Author: 
+## Author: Alexander Elbracht
 ## Version: 0.1.0
 ## SavedVariables: RetailUIDB
 ## OptionalDeps: Ace3

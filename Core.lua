@@ -9,16 +9,16 @@ local L = LibStub('AceLocale-3.0'):GetLocale('RetailUI')
 
 -- Grows as modules add their own defaults under profile/global.
 local defaults = {
-    profile = {},
+	profile = {},
 }
 
 function RetailUI:OnInitialize()
-    self.db = LibStub('AceDB-3.0'):New('RetailUIDB', defaults, true)
+	self.db = LibStub('AceDB-3.0'):New('RetailUIDB', defaults, true)
 
-    self:SetupOptions()
+	self:SetupOptions()
 
-    self:RegisterChatCommand('retailui', 'OpenOptions')
-    self:RegisterChatCommand('rui', 'OpenOptions')
+	self:RegisterChatCommand('retailui', 'OpenOptions')
+	self:RegisterChatCommand('rui', 'OpenOptions')
 end
 
 function RetailUI:OnEnable() self:Print(L['Loaded']) end
@@ -26,6 +26,6 @@ function RetailUI:OnEnable() self:Print(L['Loaded']) end
 function RetailUI:OpenOptions() LibStub('AceConfigDialog-3.0'):Open(addonName) end
 
 function RetailUI:GetVersion()
-    local version = C_AddOns.GetAddOnMetadata(addonName, 'Version')
-    return version or 'unknown'
+	local version = C_AddOns.GetAddOnMetadata(addonName, 'Version')
+	return version or 'unknown'
 end
