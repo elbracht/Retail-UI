@@ -49,22 +49,6 @@ function PlayerFrame:CreateHealthBar(scale)
 	fill:AddMaskTexture(mask)
 	background:AddMaskTexture(mask)
 
-	local function UpdateStatusText()
-		local setting = GetCVar("statusTextDisplay")
-		local maxHealth = UnitHealthMax("player")
-		local health = UnitHealth("player")
-
-		if setting == "NUMERIC" then
-			statusText:SetText(health .. " / " .. maxHealth)
-		elseif setting == "PERCENT" then
-			statusText:SetText(math.floor(health / maxHealth * 100 + 0.5) .. "%")
-		elseif setting == "BOTH" then
-			statusText:SetText(health .. " / " .. maxHealth .. " (" .. math.floor(health / maxHealth * 100 + 0.5) .. "%)")
-		else
-			statusText:SetText("")
-		end
-	end
-
 	local function UpdateHealth()
 		local maxHealth = UnitHealthMax("player")
 		if maxHealth == 0 then maxHealth = 1 end
@@ -73,11 +57,12 @@ function PlayerFrame:CreateHealthBar(scale)
 		local color1, color2 = GetHealthGradient(healthPercent)
 
 		fill:SetGradient("HORIZONTAL", color1, color2)
-		fill:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -(HEALTH_BAR_WIDTH * scale * (1 - healthPercent)), 0)
+		fill:SetPoint("RIGHT", frame, "RIGHT", -(HEALTH_BAR_WIDTH * scale * (1 - healthPercent)), 0)
 	end
 
 	frame:RegisterEvent("UNIT_HEALTH")
-	frame:SetScript("OnEvent", function()
+	frame:SetScript("OnEvent", function(_, _, unit)
+		if unit ~= "player" then return end
 		UpdateHealth()
 	end)
 
