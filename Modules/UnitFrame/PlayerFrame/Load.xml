@@ -8,4 +8,5 @@
 	<Script file="HealthBar.lua"/>
 	<Script file="HealthBarText.lua"/>
 	<Script file="PowerBar.lua"/>
+	<Script file="PowerBarText.lua"/>
 </Ui>

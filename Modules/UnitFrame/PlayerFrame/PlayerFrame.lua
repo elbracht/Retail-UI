@@ -25,4 +25,5 @@ function PlayerFrame:OnEnable()
 	self.healthBar = self:CreateHealthBar(PLAYER_FRAME_SCALE)
 	self.healthBarText = self:CreateHealthBarText(PLAYER_FRAME_SCALE)
 	self.powerBar = self:CreatePowerBar(PLAYER_FRAME_SCALE)
+	self.powerBarText = self:CreatePowerBarText(PLAYER_FRAME_SCALE)
 end
