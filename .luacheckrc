@@ -16,14 +16,17 @@ globals = {
     -- WoW API: UI
     'CreateFrame',
     'CreateMaskTexture',
-    'UIParent',
     'PlayerFrame',
     'SetPortraitTexture',
+    'UIParent',
 
     -- WoW API: Functions
     'CreateColor',
+    'GetCVar',
     'UnitHealth',
     'UnitHealthMax',
+    'UnitLevel',
+    'UnitName',
 
     -- Addon Libraries
     'LibStub',
