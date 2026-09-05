@@ -23,6 +23,7 @@ Locales\enUS.lua
 
 # Utils
 Utils\Textures.lua
+Utils\Colors.lua
 
 # Core
 Core.lua

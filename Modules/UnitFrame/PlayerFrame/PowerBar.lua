@@ -4,15 +4,15 @@ local PlayerFrame = RetailUI:GetModule("PlayerFrame")
 local Textures = addonTable.Textures
 local Colors = addonTable.Colors
 
-local HEALTH_BAR_WIDTH = 251
-local HEALTH_BAR_HEIGHT = 40
-local HEALTH_BAR_OFFSET_X = 133
-local HEALTH_BAR_OFFSET_Y = 53
+local POWER_BAR_WIDTH = 248
+local POWER_BAR_HEIGHT = 23
+local POWER_BAR_OFFSET_X = 136
+local POWER_BAR_OFFSET_Y = 96
 
-function PlayerFrame:CreateHealthBar(scale)
+function PlayerFrame:CreatePowerBar(scale)
 	local frame = CreateFrame("Frame", nil, self.frame)
-	frame:SetSize(HEALTH_BAR_WIDTH * scale, HEALTH_BAR_HEIGHT * scale)
-	frame:SetPoint("TOPLEFT", self.frame, "TOPLEFT", HEALTH_BAR_OFFSET_X * scale, -HEALTH_BAR_OFFSET_Y * scale)
+	frame:SetSize(POWER_BAR_WIDTH * scale, POWER_BAR_HEIGHT * scale)
+	frame:SetPoint("TOPLEFT", self.frame, "TOPLEFT", POWER_BAR_OFFSET_X * scale, -POWER_BAR_OFFSET_Y * scale)
 	frame:SetFrameLevel(self.frame:GetFrameLevel() - 1)
 
 	local backgroundColor = Colors.GetBackgroundColor()
@@ -25,29 +25,30 @@ function PlayerFrame:CreateHealthBar(scale)
 	fill:SetTexture("Interface\\Buttons\\WHITE8x8")
 
 	local mask = frame:CreateMaskTexture(nil, "ARTWORK")
-	mask:SetTexture(Textures.GetTexturePath("UnitFrame\\PlayerFrame\\PlayerFrame-HealthBar-Mask.blp"))
+	mask:SetTexture(Textures.GetTexturePath("UnitFrame\\PlayerFrame\\PlayerFrame-PowerBar-Mask.blp"))
 	mask:SetAllPoints()
 	fill:AddMaskTexture(mask)
 	background:AddMaskTexture(mask)
 
-	local function UpdateHealth()
-		local maxHealth = UnitHealthMax("player")
-		if maxHealth == 0 then maxHealth = 1 end
+	local function UpdatePower()
+		local maxPower = UnitPowerMax("player")
+		if maxPower == 0 then maxPower = 1 end
 
-		local healthPercent = UnitHealth("player") / maxHealth
-		local color = Colors.GetHealthBarColor(healthPercent)
+		local percent = UnitPower("player") / maxPower
+		local type = UnitPowerType("player")
+		local color = Colors.GetPowerBarColor(type)
 
 		fill:SetGradient("HORIZONTAL", Colors.Darken(color, 0.4), Colors.Lighten(color, 0.2))
-		fill:SetPoint("RIGHT", frame, "RIGHT", -(HEALTH_BAR_WIDTH * scale * (1 - healthPercent)), 0)
+		fill:SetPoint("RIGHT", frame, "RIGHT", -(POWER_BAR_WIDTH * scale * (1 - percent)), 0)
 	end
 
-	frame:RegisterEvent("UNIT_HEALTH")
+	frame:RegisterEvent("UNIT_POWER_UPDATE")
 	frame:SetScript("OnEvent", function(_, _, unit)
 		if unit ~= "player" then return end
-		UpdateHealth()
+		UpdatePower()
 	end)
 
-	UpdateHealth()
+	UpdatePower()
 
 	return frame
 end

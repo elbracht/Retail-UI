@@ -23,10 +23,14 @@ globals = {
     -- WoW API: Functions
     'CreateColor',
     'GetCVar',
+    'PowerBarColor',
     'UnitHealth',
     'UnitHealthMax',
     'UnitLevel',
     'UnitName',
+    'UnitPower',
+    'UnitPowerMax',
+    'UnitPowerType',
 
     -- Addon Libraries
     'LibStub',

@@ -1,6 +1,6 @@
 local _, addonTable = ...
 local RetailUI = addonTable.RetailUI
-local TexturePath = addonTable.Textures.GetTexturePath
+local Textures = addonTable.Textures
 
 ---@class PlayerFrameModule : AceAddon-3.0, AceEvent-3.0
 local PlayerFrame = RetailUI:NewModule("PlayerFrame", "AceEvent-3.0")
@@ -16,7 +16,7 @@ function PlayerFrame:OnEnable()
 
 	local texture = frame:CreateTexture(nil, "BACKGROUND")
 	texture:SetAllPoints()
-	texture:SetTexture(TexturePath("UnitFrame\\PlayerFrame\\PlayerFrame.blp"))
+	texture:SetTexture(Textures.GetTexturePath("UnitFrame\\PlayerFrame\\PlayerFrame.blp"))
 
 	self.frame = frame
 	self.portrait = self:CreatePortrait(PLAYER_FRAME_SCALE)
@@ -24,4 +24,5 @@ function PlayerFrame:OnEnable()
 	self.name = self:CreateText(PLAYER_FRAME_SCALE)
 	self.healthBar = self:CreateHealthBar(PLAYER_FRAME_SCALE)
 	self.healthBarText = self:CreateHealthBarText(PLAYER_FRAME_SCALE)
+	self.powerBar = self:CreatePowerBar(PLAYER_FRAME_SCALE)
 end
